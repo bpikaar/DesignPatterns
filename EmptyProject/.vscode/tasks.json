@@ -1,0 +1,11 @@
+{
+	"version": "0.1.0",
+	"command": "tsc",
+	"isShellCommand": true,
+
+	// dit zorgt ervoor dat code watch wordt aangezet. 
+	// Na een wijziging zal het geheel direct gecompileerd worden.
+    "args": ["-w"], 
+	
+    "problemMatcher": "$tsc"
+}
