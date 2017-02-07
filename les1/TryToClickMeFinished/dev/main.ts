@@ -5,7 +5,7 @@
 class Main {
 	constructor() {
         // Create a new instance of Input
-        new Input();
+        let input = new Input();
 	}
 }
 

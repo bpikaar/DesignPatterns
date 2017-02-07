@@ -26,6 +26,7 @@ class Fish {
         
         this.div.style.webkitFilter = "hue-rotate("+color+"deg)";
         this.div.style.filter = "hue-rotate("+color+"deg)";
+
     }
  
     public update() : void {
