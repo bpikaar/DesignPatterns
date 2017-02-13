@@ -19,5 +19,5 @@ Bevat een start project. Je kunt hiervan een kopie maken om zelf een project te 
 - **Autosave** voor Visual Studio Code. Go to Preferences > (User)Settings > files.autoSave. Klik op potlood (bewerken). Verander optie naar "OnWindowChange"
 - Test je opdrachten altijd via **localhost** en niet via je file system. Hiervoor kan je ook [Browsersync](https://browsersync.io/) gebruiken
 - Wil je variabelen gebruiken in een string, dan kun je gebruik maken van [Template literals](http://es6-features.org/#StringInterpolation). Plaat de string tussen back ticks en de variabele in de string tussen ${var}. Bijvoorbeeld: \``translate(${startx}px, ${starty}px)`\`
-- Listeners maak je met **Arrow functions**:
-`button.addEventListener('click', () => this.handleClick());`
+- Listeners maak je met **Arrow functions**: `button.addEventListener('click', () => this.handleClick());`
+- [TypeScript code conventie](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md)
