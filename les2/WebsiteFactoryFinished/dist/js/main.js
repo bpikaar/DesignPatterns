@@ -23,6 +23,32 @@ var Blog = (function (_super) {
     };
     return Blog;
 }(Website));
+var WebsiteAbstractFactory = (function () {
+    function WebsiteAbstractFactory() {
+    }
+    return WebsiteAbstractFactory;
+}());
+var ConcreteFactory = (function (_super) {
+    __extends(ConcreteFactory, _super);
+    function ConcreteFactory() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ConcreteFactory.prototype.createWebsite = function (type) {
+        var website;
+        switch (type) {
+            case WebsiteTypes.Blog:
+                website = new Blog();
+                break;
+            case WebsiteTypes.Shop:
+                website = new Shop();
+                break;
+            default:
+                website = null;
+        }
+        return website;
+    };
+    return ConcreteFactory;
+}(WebsiteAbstractFactory));
 window.addEventListener("load", function () {
     var div = document.getElementById('buttons');
     var blogButton = document.createElement('button');
@@ -40,9 +66,13 @@ window.addEventListener("load", function () {
 });
 function handleBlogClick(e) {
     removeCards();
+    var websiteFactory = new ConcreteFactory();
+    var website = websiteFactory.createWebsite(WebsiteTypes.Blog);
 }
 function handleShopClick(e) {
     removeCards();
+    var websiteFactory = new ConcreteFactory();
+    var website = websiteFactory.createWebsite(WebsiteTypes.Shop);
 }
 function removeCards() {
     var cards = document.getElementsByTagName('card');
@@ -124,4 +154,9 @@ var Shop = (function (_super) {
     };
     return Shop;
 }(Website));
+var WebsiteTypes;
+(function (WebsiteTypes) {
+    WebsiteTypes[WebsiteTypes["Blog"] = 0] = "Blog";
+    WebsiteTypes[WebsiteTypes["Shop"] = 1] = "Shop";
+})(WebsiteTypes || (WebsiteTypes = {}));
 //# sourceMappingURL=main.js.map

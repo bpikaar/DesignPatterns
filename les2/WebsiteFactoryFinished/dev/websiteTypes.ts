@@ -1,0 +1,4 @@
+enum WebsiteTypes {
+    Blog,
+    Shop
+}
