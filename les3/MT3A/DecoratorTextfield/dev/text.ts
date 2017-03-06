@@ -1,0 +1,3 @@
+interface Txt {
+    getText() : string;
+}
