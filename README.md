@@ -21,7 +21,8 @@ Bevat een start project. Je kunt hiervan een kopie maken om zelf een project te 
 - WebsiteFactoryFinished. Opgelost met een **Factory Method** 
 
 ## Week 3
-- TextDecorator. Startproject per klas. Iedere student doet een pull request en voegt zelf een bewerking toe. 
+- TextDecorator. Startproject per klas. Iedere student doet een pull request en voegt zelf een bewerking toe. Hiervoor Fork je eerst het project, doe je aanpassingen en kan je vervolgens een pullRequest doen. 
+- PixelAquariumObserverFisished. Project waarbij Aquarium is ingezet als Subject en de vissen Observers zijn. Ook is de Factory Method verwerkt. 
 
 # Tips
 - **Autosave** voor Visual Studio Code. Go to Preferences > (User)Settings > files.autoSave. Klik op potlood (bewerken). Verander optie naar "OnWindowChange"
