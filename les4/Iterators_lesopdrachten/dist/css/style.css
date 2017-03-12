@@ -1,0 +1,165 @@
+.align {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* helpers/grid.css */
+
+:root {
+  --gridMaxWidth: 30rem;
+  --gridWidth: 90%;
+}
+
+.grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--gridMaxWidth);
+  width: var(--gridWidth);
+}
+
+/* layout/base.css */
+
+:root {
+  --htmlFontSize: 100%;
+
+  --bodyBackgroundColor: #61646d;
+  --bodyColor: #000;
+  --bodyFontFamily: 'Open Sans';
+  --bodyFontFamilyFallback: sans-serif;
+  /*--bodyFontSize: .875rem;*/
+  --bodyFontSize: 1.2rem;
+  --bodyFontWeight: 500;
+  --bodyLineHeight: 1.8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: var(--htmlFontSize);
+  height: 100%;
+}
+
+body {
+  background-color: var(--bodyBackgroundColor);
+  color: var(--bodyColor);
+  font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+  font-size: var(--bodyFontSize);
+  font-weight: var(--bodyFontWeight);
+  line-height: var(--bodyLineHeight);
+  margin: 0;
+  min-height: 100%;
+}
+
+/* modules/form.css */
+
+::placeholder {
+  color: #42454e;
+}
+
+input {
+  appearance: none;
+  border: none;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+input[type="search"] {
+  appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+}
+
+.form-field {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-input {
+  flex-grow: 1;
+}
+
+/* modules/search.css */
+
+:root {
+  --searchBackgroundColor: #42454e;
+  --searchBorderRadius: .125rem;
+  /*--searchFontSize: .75rem;*/
+  --searchFontSize: 1.2rem;
+  --searchPadding: .5rem;
+
+  --searchInputBorderRadius: .125rem;
+
+  --searchInputSearchBackgroundColor: #fff;
+  --searchInputSearchColor: #42454e;
+  --searchInputSearchPaddingHorizontal: .5rem;
+  --searchInputSearchPaddingVertical: .375rem;
+
+  --searchInputButtonBackgroundColor: #1bba9a;
+  --searchInputButtonColor: #fff;
+  --searchInputButtonFontWeight: bold;
+  --searchInputButtonPaddingHorizontal: .625rem;
+  --searchInputButtonPaddingVertical: .375rem;
+  --searchInputButtonHoverBackgroundColor: #189e83;
+}
+
+.search,
+#output {
+  background-color: var(--searchBackgroundColor);
+  border-radius: var(--searchBorderRadius);
+  font-size: var(--searchFontSize);
+  padding: var(--searchPadding);
+}
+
+.search input[type="search"],
+.search input[type="submit"],
+.search input[type="checkbox"] {
+  border-radius: var(--searchInputBorderRadius);
+}
+
+.search input[type="search"],
+.search input[type="checkbox"] {
+  background-color: var(--searchInputSearchBackgroundColor);
+  color: var(--searchInputSearchColor);
+  padding: var(--searchInputSearchPaddingVertical) var(--searchInputSearchPaddingHorizontal);
+}
+
+.search input[type="submit"] {
+  background-color: var(--searchInputButtonBackgroundColor);
+  color: var(--searchInputButtonColor);
+  font-weight: var(--searchInputButtonFontWeight);
+  margin-left: .5rem;
+  padding: var(--searchInputButtonPaddingVertical) var(--searchInputButtonPaddingHorizontal);
+}
+
+.search input[type="submit"]:hover {
+  background-color: var(--searchInputButtonHoverBackgroundColor);
+}
+.search input[type="checkbox"]{
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: x-large;
+  flex-grow: 0;
+}
+.search label,
+#output{
+  color: white;
+  /*margin-top: 10px;*/
+  font-size: var(--searchFontSize);
+}
+
+#output {
+  /*display: none;*/
+}
