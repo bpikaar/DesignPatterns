@@ -26,6 +26,7 @@ Bevat een start project. Je kunt hiervan een kopie maken om zelf een project te 
 
 ## Week 4
 - [Iterators in TypeScript](https://basarat.gitbooks.io/typescript/content/docs/iterators.html)
+- Lesopdrachten rond **Iterator** (code is onvolledig)
 
 # Tips
 - **Autosave** voor Visual Studio Code. Go to Preferences > (User)Settings > files.autoSave. Klik op potlood (bewerken). Verander optie naar "OnWindowChange"
