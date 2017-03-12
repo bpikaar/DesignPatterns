@@ -1,39 +1,50 @@
-window.addEventListener("load", function() {
+/// <reference path="decorators/ConcreteDecorator.ts" />
+/// <reference path="decorators/ReverseTextDecorator.ts" />
 
+window.addEventListener("load", function() {
     let submit = document.getElementById("submit");
     submit.addEventListener("click", handleSubmit);
 });
 
 function handleSubmit(e) {
     e.preventDefault();
-    let form = document.getElementById("the-form");
-    
-    let text = form.search.value;
-    
-    // Textobject
-    
+    let form: any = document.getElementById("the-form");
+
+    let text = form.search.value,
+        output_text = ""
+
     if(form.lowercase.checked) {
-        console.log("Alle karakters naar lowercase");
-        
+        output_text += new ConcreteDecorator(
+            new LowercaseDecorator(text)
+        ).getText();
     }
-    
+
     if(form.summary.checked) {
-        console.log("Alleen de eerste 10 woorden van de string");
-        
+        output_text += new ConcreteDecorator(
+            new SummeryDecorator(text)
+        ).getText();
     }
-    
+
     if(form.capital.checked) {
-        console.log("Na elke punt spatie een hoofdletter");
-        
+        output_text += new ConcreteDecorator(
+            new CapitalDecorator(text)
+        ).getText();
     }
-    
+
     if(form.reverse.checked) {
-        console.log("De tekst achterstevoren.");
-        
+        output_text += new ConcreteDecorator(
+            new ReverseTextDecorator(text)
+        ).getText();
     }
-    
-    
+
+    if(form.emojify.checked) {
+        output_text += new ConcreteDecorator(
+            new EmojiDecorator(text)
+        ).getText();
+    }
+
     let output = document.getElementById("output");
     output.style.display = "block";
-    //output.innerHTML = 
+
+    output.innerHTML = output_text;
 }
