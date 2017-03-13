@@ -1,11 +1,11 @@
 window.addEventListener("load", function() {
-
     let submit = document.getElementById("submit");
     submit.addEventListener("click", handleSubmit);
 });
 
 function handleSubmit(e) {
     e.preventDefault();
+
     let form = document.getElementById("the-form");
     
     let text = form.search.value;
@@ -28,10 +28,20 @@ function handleSubmit(e) {
     if(form.reverse.checked) {
         rawString = new Reverse(rawString);
     }
+
     // Tim van de Vathorst
     if(form.emojify.checked) {
-         //output_text += new ConcreteDecorator(new EmojiDecorator(text)).getText();
          rawString = new EmojiDecorator(rawString);
+    }
+    
+    // Wesley Kroon
+    if(form.removeSwear.checked) {
+         rawString = new AntiSwearDectorater(rawString);
+    }
+
+    // Jens van de Graaf
+    if(form.NAVO.checked) {
+         rawString = new NAVOTextDecorator(rawString);
     }
     
     let output = document.getElementById("output");
