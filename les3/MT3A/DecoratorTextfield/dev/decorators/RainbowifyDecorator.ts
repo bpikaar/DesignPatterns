@@ -4,8 +4,9 @@
 class RainbowifyDecorator implements Txt {
     private _s: String;
     private _colors: String[];
+    private _animate: Boolean = false;
 
-    constructor(s: String) {
+    constructor(s: String, animate: Boolean) {
         this._s = s;
         this._colors = [
             "color-red",
@@ -15,6 +16,7 @@ class RainbowifyDecorator implements Txt {
             "color-indigo",
             "color-violet",
         ];
+        this._animate = animate;
     }
 
     public getText(): string {
@@ -27,6 +29,7 @@ class RainbowifyDecorator implements Txt {
                 counter = 0;
             }
         });
-        return returnString;
+        
+        return this._animate == false ? returnString : `<span class="rainbow">${returnString}</span>`;
     }
 }

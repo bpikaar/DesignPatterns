@@ -24,7 +24,8 @@ class ReverseTextDecorator {
     }
 }
 class RainbowifyDecorator {
-    constructor(s) {
+    constructor(s, animate) {
+        this._animate = false;
         this._s = s;
         this._colors = [
             "color-red",
@@ -34,6 +35,7 @@ class RainbowifyDecorator {
             "color-indigo",
             "color-violet",
         ];
+        this._animate = animate;
     }
     getText() {
         let returnString = '';
@@ -45,7 +47,7 @@ class RainbowifyDecorator {
                 counter = 0;
             }
         });
-        return returnString;
+        return this._animate == false ? returnString : `<span class="rainbow">${returnString}</span>`;
     }
 }
 window.addEventListener("load", function () {
@@ -72,7 +74,7 @@ function handleSubmit(e) {
         output_text += new ConcreteDecorator(new EmojiDecorator(text)).getText();
     }
     if (form.rainbowify.checked) {
-        output_text += new ConcreteDecorator(new RainbowifyDecorator(text)).getText();
+        output_text += new ConcreteDecorator(new RainbowifyDecorator(text, form.rainbowify_animated.value == "yes")).getText();
     }
     let output = document.getElementById("output");
     output.style.display = "block";

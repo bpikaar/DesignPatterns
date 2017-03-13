@@ -34,8 +34,15 @@
         <label>Emojify</label>
       </div>
       <div class="form-field">
-        <input type="checkbox" name="rainbowify" class="form-input">
-        <label>Rainbowify</label>
+        <input type="checkbox" id="rainbowify" name="rainbowify" class="form-input">
+        <label for="rainbowify">Rainbowify</label>
+        <div class="switch-field">
+          <div class="switch-title">Animate Rainbowify?</div>
+          <input type="radio" id="switch_yes" name="rainbowify_animated" value="yes" checked/>
+          <label for="switch_yes">Yes</label>
+          <input type="radio" id="switch_no" name="rainbowify_animated" value="no" />
+          <label for="switch_no">No</label>
+        </div>
       </div>
     </form>
     <p><br></p>

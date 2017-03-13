@@ -43,10 +43,10 @@ function handleSubmit(e) {
             new EmojiDecorator(text)
         ).getText();
     }
-
+    
     if(form.rainbowify.checked) {
         output_text += new ConcreteDecorator(
-            new RainbowifyDecorator(text)
+            new RainbowifyDecorator(text, form.rainbowify_animated.value == "yes")
         ).getText();
     }
 
