@@ -42,6 +42,11 @@ function handleSubmit(e) {
             new EmojiDecorator(text)
         ).getText();
     }
+    if(form.antiRacismfy.checked) {
+        output_text += new ConcreteDecorator(
+            new AntiSwearDectorater(text)
+        ).getText();
+    }
 
     let output = document.getElementById("output");
     output.style.display = "block";

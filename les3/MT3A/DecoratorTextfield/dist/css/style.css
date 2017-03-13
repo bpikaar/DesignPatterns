@@ -163,3 +163,25 @@ input[type="search"]::-webkit-search-decoration {
 #output {
   display: none;
 }
+
+.bobba{
+  position: fixed;
+  animation: bobba 5s linear 0s infinite;
+  z-index: -999;
+
+}
+
+@keyframes bobba{
+  0%{
+    top:0;
+    left:0;
+  }
+  50%{
+    left: calc(100vw - 200px);
+    top: calc(100vh - 200px);
+  }
+  100%{
+    top: 0;
+    left: 0;
+  }
+}
