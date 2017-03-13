@@ -2,8 +2,14 @@ window.addEventListener("load", function() {
     
     // Voorbeeld 1: Basis iterator met IteratorInterface
 
-    let simpleIterator : SimpleIterator = new SimpleIterator([0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
+    let simpleIterator : SimpleIterator = 
+        new SimpleIterator([0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
 
+        while(simpleIterator.hasNext()) {
+            console.log(simpleIterator.next());
+        }
+        
+        
 
     // Voorbeeld 2: gebruik van TypeScript Iterator
 
@@ -14,6 +20,9 @@ window.addEventListener("load", function() {
 
     let typeScriptItrableIterator : TypeScriptIterableIterator = new TypeScriptIterableIterator([2584, 4181, 6765, 10946]);
 
+    for (let item of typeScriptItrableIterator) {
+        console.log(item);
+    }
 
     // Voorbeeld 4: gebruik van generator
     function* idMaker(){

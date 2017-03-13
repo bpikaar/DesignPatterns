@@ -12,7 +12,7 @@ class SimpleIterator {
         }
     }
     hasNext() {
-        return this.pointer < this.collection.length;
+        return this.collection.length > this.pointer;
     }
 }
 class TypeScriptIterator {
@@ -35,7 +35,7 @@ class TypeScriptIterator {
         }
     }
     hasNext() {
-        return this.pointer < this.collection.length;
+        return this.collection.length > this.pointer;
     }
 }
 class TypeScriptIterableIterator {
@@ -61,7 +61,6 @@ class TypeScriptIterableIterator {
         }
     }
     hasNext() {
-        return this.pointer < this.collection.length;
     }
 }
 window.addEventListener("load", function () {
@@ -70,9 +69,6 @@ window.addEventListener("load", function () {
         console.log(simpleIterator.next());
     }
     let typeScriptIterator = new TypeScriptIterator([89, 144, 233, 377, 610, 987, 1597]);
-    while (typeScriptIterator.hasNext()) {
-        console.log(typeScriptIterator.next());
-    }
     let typeScriptItrableIterator = new TypeScriptIterableIterator([2584, 4181, 6765, 10946]);
     for (let item of typeScriptItrableIterator) {
         console.log(item);
