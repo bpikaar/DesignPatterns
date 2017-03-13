@@ -69,6 +69,9 @@ function handleSubmit(e) {
     if (form.NAVO.checked) {
         rawString = new NAVOTextDecorator(rawString);
     }
+    if (form.numberfy.checked) {
+        rawString = new NumberfyTextDecorator(rawString);
+    }
     let output = document.getElementById("output");
     output.style.display = "block";
     output.innerHTML = rawString.getText();
@@ -16280,6 +16283,133 @@ class NAVOTextDecorator extends TxtDecorator {
             newText += text[i].replace(text[i], navoSpelling[text[i]]);
         }
         return newText;
+    }
+}
+class NumberfyTextDecorator extends TxtDecorator {
+    buildNumbers() {
+        this.numbers = [
+            {
+                "word": "a",
+                "number": 1
+            },
+            {
+                "word": "b",
+                "number": 2
+            },
+            {
+                "word": "c",
+                "number": 3
+            },
+            {
+                "word": "d",
+                "number": 4
+            },
+            {
+                "word": "e",
+                "number": 5
+            },
+            {
+                "word": "f",
+                "number": 6
+            },
+            {
+                "word": "g",
+                "number": 7
+            },
+            {
+                "word": "h",
+                "number": 8
+            },
+            {
+                "word": "i",
+                "number": 9
+            },
+            {
+                "word": "j",
+                "number": 10
+            },
+            {
+                "word": "k",
+                "number": 11
+            },
+            {
+                "word": "l",
+                "number": 12
+            },
+            {
+                "word": "m",
+                "number": 13
+            },
+            {
+                "word": "n",
+                "number": 14
+            },
+            {
+                "word": "o",
+                "number": 15
+            },
+            {
+                "word": "p",
+                "number": 16
+            },
+            {
+                "word": "q",
+                "number": 17
+            },
+            {
+                "word": "r",
+                "number": 18
+            },
+            {
+                "word": "s",
+                "number": 19
+            },
+            {
+                "word": "t",
+                "number": 20
+            },
+            {
+                "word": "u",
+                "number": 21
+            },
+            {
+                "word": "v",
+                "number": 22
+            },
+            {
+                "word": "w",
+                "number": 24
+            },
+            {
+                "word": "x",
+                "number": 25
+            },
+            {
+                "word": "y",
+                "number": 26
+            },
+            {
+                "word": "z",
+                "number": 27
+            }
+        ];
+    }
+    constructor(decoratedTxt) {
+        super(decoratedTxt);
+        this.buildNumbers();
+    }
+    getText() {
+        const split_words = this.decoratedTxt.getText().split("");
+        let return_string = "";
+        for (let i = 0; i < split_words.length; i++) {
+            let word = split_words[i];
+            this.numbers.forEach(function (value, key) {
+                if (word == value.word) {
+                    return_string += value.number;
+                }
+            });
+        }
+        return return_string;
     }
 }
 class RainbowifyDecorator extends TxtDecorator {

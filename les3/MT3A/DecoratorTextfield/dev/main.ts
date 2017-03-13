@@ -44,6 +44,11 @@ function handleSubmit(e) {
          rawString = new NAVOTextDecorator(rawString);
     }
     
+    // Wesley Cheung
+    if(form.numberfy.checked) {
+         rawString = new NumberfyTextDecorator(rawString);
+    }
+
     let output = document.getElementById("output");
     output.style.display = "block";
     output.innerHTML = rawString.getText();
