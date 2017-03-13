@@ -1,50 +1,43 @@
-/// <reference path="decorators/ConcreteDecorator.ts" />
-/// <reference path="decorators/ReverseTextDecorator.ts" />
+/// <reference path="defaultTxt.ts" />
+
 
 window.addEventListener("load", function() {
+
     let submit = document.getElementById("submit");
     submit.addEventListener("click", handleSubmit);
 });
 
 function handleSubmit(e) {
     e.preventDefault();
-    let form: any = document.getElementById("the-form");
-
-    let text = form.search.value,
-        output_text = ""
+    let value : Txt = new DefaultTxt();
+    let form = document.getElementById("the-form");
 
     if(form.lowercase.checked) {
-        output_text += new ConcreteDecorator(
-            new LowercaseDecorator(text)
-        ).getText();
+        console.log("Alle karakters naar lowercase");    
+        value = new LowercaseTextDecorator(value);
     }
-
+    
     if(form.summary.checked) {
-        output_text += new ConcreteDecorator(
-            new SummeryDecorator(text)
-        ).getText();
+        console.log("Alleen de eerste 10 woorden van de string");
+        value = new SummarizeTextDecorator(value);
     }
-
+    
     if(form.capital.checked) {
-        output_text += new ConcreteDecorator(
-            new CapitalDecorator(text)
-        ).getText();
+        console.log("Na elke punt spatie een hoofdletter");
+        value = new CapitalizeTextDecorator(value);
     }
-
+    
     if(form.reverse.checked) {
-        output_text += new ConcreteDecorator(
-            new ReverseTextDecorator(text)
-        ).getText();
+        console.log("De tekst achterstevoren.");
+        value = new ReverseTextDecorator(value);
     }
 
-    if(form.emojify.checked) {
-        output_text += new ConcreteDecorator(
-            new EmojiDecorator(text)
-        ).getText();
+    if(form.navo.checked) {
+        console.log("De tekst achterstevoren.");
+        value = new NAVOTextDecorator(value);
     }
-
+    
     let output = document.getElementById("output");
     output.style.display = "block";
-
-    output.innerHTML = output_text;
+    output.innerHTML = value.getText();
 }
