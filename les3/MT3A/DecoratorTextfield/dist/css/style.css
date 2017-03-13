@@ -163,3 +163,22 @@ input[type="search"]::-webkit-search-decoration {
 #output {
   display: none;
 }
+
+.color-red {
+  color: #ff0000;
+}
+.color-orange {
+  color: #ff8000;
+}
+.color-yellow {
+  color: #ffff00;
+}
+.color-green {
+  color: #008000;
+}
+.color-indigo {
+  color: #0000ff;
+}
+.color-violet {
+  color: #a000c0;
+}

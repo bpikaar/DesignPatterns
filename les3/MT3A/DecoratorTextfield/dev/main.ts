@@ -1,5 +1,6 @@
 /// <reference path="decorators/ConcreteDecorator.ts" />
 /// <reference path="decorators/ReverseTextDecorator.ts" />
+/// <reference path="decorators/RainbowifyDecorator.ts" />
 
 window.addEventListener("load", function() {
     let submit = document.getElementById("submit");
@@ -40,6 +41,12 @@ function handleSubmit(e) {
     if(form.emojify.checked) {
         output_text += new ConcreteDecorator(
             new EmojiDecorator(text)
+        ).getText();
+    }
+
+    if(form.rainbowify.checked) {
+        output_text += new ConcreteDecorator(
+            new RainbowifyDecorator(text)
         ).getText();
     }
 

@@ -15,6 +15,69 @@ class ConcreteDecorator extends Decorator {
         return super.getText() + "<br />";
     }
 }
+class ReverseTextDecorator {
+    constructor(s) {
+        this.s = s;
+    }
+    getText() {
+        return this.s.split("").reverse().join("");
+    }
+}
+class RainbowifyDecorator {
+    constructor(s) {
+        this._s = s;
+        this._colors = [
+            "color-red",
+            "color-yellow",
+            "color-orange",
+            "color-green",
+            "color-indigo",
+            "color-violet",
+        ];
+    }
+    getText() {
+        let returnString = '';
+        let counter = 0;
+        [...this._s].forEach((c) => {
+            returnString += `<span class="${this._colors[counter]}">${c}</span>`;
+            counter++;
+            if (counter >= this._colors.length) {
+                counter = 0;
+            }
+        });
+        return returnString;
+    }
+}
+window.addEventListener("load", function () {
+    let submit = document.getElementById("submit");
+    submit.addEventListener("click", handleSubmit);
+});
+function handleSubmit(e) {
+    e.preventDefault();
+    let form = document.getElementById("the-form");
+    let text = form.search.value, output_text = "";
+    if (form.lowercase.checked) {
+        output_text += new ConcreteDecorator(new LowercaseDecorator(text)).getText();
+    }
+    if (form.summary.checked) {
+        output_text += new ConcreteDecorator(new SummeryDecorator(text)).getText();
+    }
+    if (form.capital.checked) {
+        output_text += new ConcreteDecorator(new CapitalDecorator(text)).getText();
+    }
+    if (form.reverse.checked) {
+        output_text += new ConcreteDecorator(new ReverseTextDecorator(text)).getText();
+    }
+    if (form.emojify.checked) {
+        output_text += new ConcreteDecorator(new EmojiDecorator(text)).getText();
+    }
+    if (form.rainbowify.checked) {
+        output_text += new ConcreteDecorator(new RainbowifyDecorator(text)).getText();
+    }
+    let output = document.getElementById("output");
+    output.style.display = "block";
+    output.innerHTML = output_text;
+}
 class CapitalDecorator {
     constructor(s) {
         this.s = s;
@@ -16169,14 +16232,6 @@ class LowercaseDecorator {
         return this.s.toLowerCase();
     }
 }
-class ReverseTextDecorator {
-    constructor(s) {
-        this.s = s;
-    }
-    getText() {
-        return this.s.split("").reverse().join("");
-    }
-}
 class SummeryDecorator {
     constructor(s) {
         this.s = s;
@@ -16184,32 +16239,5 @@ class SummeryDecorator {
     getText() {
         return this.s.split(" ").slice(0, 6).join("") + '...';
     }
-}
-window.addEventListener("load", function () {
-    let submit = document.getElementById("submit");
-    submit.addEventListener("click", handleSubmit);
-});
-function handleSubmit(e) {
-    e.preventDefault();
-    let form = document.getElementById("the-form");
-    let text = form.search.value, output_text = "";
-    if (form.lowercase.checked) {
-        output_text += new ConcreteDecorator(new LowercaseDecorator(text)).getText();
-    }
-    if (form.summary.checked) {
-        output_text += new ConcreteDecorator(new SummeryDecorator(text)).getText();
-    }
-    if (form.capital.checked) {
-        output_text += new ConcreteDecorator(new CapitalDecorator(text)).getText();
-    }
-    if (form.reverse.checked) {
-        output_text += new ConcreteDecorator(new ReverseTextDecorator(text)).getText();
-    }
-    if (form.emojify.checked) {
-        output_text += new ConcreteDecorator(new EmojiDecorator(text)).getText();
-    }
-    let output = document.getElementById("output");
-    output.style.display = "block";
-    output.innerHTML = output_text;
 }
 //# sourceMappingURL=main.js.map
