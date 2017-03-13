@@ -49,6 +49,11 @@ function handleSubmit(e) {
          rawString = new NumberfyTextDecorator(rawString);
     }
 
+    // Sedat Bilen
+    if(form.rainbowify.checked) {
+         rawString = new RainbowifyDecorator(rawString, form.rainbowify_animated.value == "true" ? true : false);
+    }
+    
     let output = document.getElementById("output");
     output.style.display = "block";
     output.innerHTML = rawString.getText();

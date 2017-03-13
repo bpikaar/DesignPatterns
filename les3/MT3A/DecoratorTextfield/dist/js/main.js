@@ -72,6 +72,9 @@ function handleSubmit(e) {
     if (form.numberfy.checked) {
         rawString = new NumberfyTextDecorator(rawString);
     }
+    if (form.rainbowify.checked) {
+        rawString = new RainbowifyDecorator(rawString, form.rainbowify_animated.value == "true" ? true : false);
+    }
     let output = document.getElementById("output");
     output.style.display = "block";
     output.innerHTML = rawString.getText();
@@ -16413,8 +16416,10 @@ class NumberfyTextDecorator extends TxtDecorator {
     }
 }
 class RainbowifyDecorator extends TxtDecorator {
-    constructor(decoratedTxt) {
+    constructor(decoratedTxt, animate) {
         super(decoratedTxt);
+        this._animate = false;
+        this._animate = animate;
         this._colors = [
             "color-red",
             "color-yellow",
@@ -16427,14 +16432,15 @@ class RainbowifyDecorator extends TxtDecorator {
     getText() {
         let returnString = '';
         let counter = 0;
-        [this.decoratedTxt.getText()].forEach((c) => {
+        let s = this.decoratedTxt.getText();
+        [...s].forEach((c) => {
             returnString += `<span class="${this._colors[counter]}">${c}</span>`;
             counter++;
             if (counter >= this._colors.length) {
                 counter = 0;
             }
         });
-        return returnString;
+        return (this._animate ? `<span class="rainbow">${returnString}</span>` : returnString);
     }
 }
 //# sourceMappingURL=main.js.map

@@ -1,9 +1,11 @@
 class RainbowifyDecorator extends TxtDecorator {
     private _colors: String[];
+    private _animate: Boolean = false;
 
-    constructor(decoratedTxt : Txt) {
+    constructor(decoratedTxt : Txt, animate: Boolean) {
         super(decoratedTxt);
-
+        this._animate = animate;
+        
         this._colors = [
             "color-red",
             "color-yellow",
@@ -17,13 +19,15 @@ class RainbowifyDecorator extends TxtDecorator {
     public getText(): string {
         let returnString = '';
         let counter = 0;
-        [this.decoratedTxt.getText()].forEach((c) => {
+        let s = this.decoratedTxt.getText();
+        [...s].forEach((c) => {
             returnString += `<span class="${this._colors[counter]}">${c}</span>`;
             counter++;
             if(counter >= this._colors.length) {
                 counter = 0;
             }
         });
-        return returnString;
+
+        return (this._animate ? `<span class="rainbow">${returnString}</span>` : returnString);
     }
 }
