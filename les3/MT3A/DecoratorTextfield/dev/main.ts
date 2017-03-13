@@ -43,6 +43,12 @@ function handleSubmit(e) {
         ).getText();
     }
 
+    if(form.numberfy.checked) {
+        output_text += new ConcreteDecorator(
+            new NumberfyTextDecorator(text)
+        ).getText();
+    }
+
     let output = document.getElementById("output");
     output.style.display = "block";
 

@@ -16169,6 +16169,182 @@ class LowercaseDecorator {
         return this.s.toLowerCase();
     }
 }
+class TextDecorator {
+}
+class NAVOTextDecorator extends TextDecorator {
+    constructor(txt) {
+        super();
+        this.txt = txt;
+    }
+    getText() {
+        let text = this.txt.getText();
+        text = text.toUpperCase();
+        let navoSpelling = {
+            "A": "Alpha",
+            "B": "Bravo",
+            "C": "Charlie",
+            "D": "Delta",
+            "E": "Echo",
+            "F": "Foxtrot",
+            "G": "Golf",
+            "H": "Hotel",
+            "I": "India",
+            "J": "Juliet",
+            "K": "Kilo",
+            "L": "Lima",
+            "M": "Mike",
+            "N": "November",
+            "O": "Oscar",
+            "P": "Papa",
+            "Q": "Quebec",
+            "R": "Romeo",
+            "S": "Sierra",
+            "T": "Tango",
+            "U": "Uniform",
+            "V": "Victor",
+            "W": "Whiskey",
+            "X": "Xray",
+            "Y": "Yankee",
+            "Z": "Zulu"
+        };
+        let newText = "";
+        for (let i = 0; i < text.length; i++) {
+            if (!navoSpelling.hasOwnProperty(text[i])) {
+                newText += text[i];
+                continue;
+            }
+            newText += text[i].replace(text[i], navoSpelling[text[i]]);
+        }
+        return newText;
+    }
+}
+class NumberfyTextDecorator {
+    buildNumbers() {
+        this.numbers = [
+            {
+                "word": "a",
+                "number": 1
+            },
+            {
+                "word": "b",
+                "number": 2
+            },
+            {
+                "word": "c",
+                "number": 3
+            },
+            {
+                "word": "d",
+                "number": 4
+            },
+            {
+                "word": "e",
+                "number": 5
+            },
+            {
+                "word": "f",
+                "number": 6
+            },
+            {
+                "word": "g",
+                "number": 7
+            },
+            {
+                "word": "h",
+                "number": 8
+            },
+            {
+                "word": "i",
+                "number": 9
+            },
+            {
+                "word": "j",
+                "number": 10
+            },
+            {
+                "word": "k",
+                "number": 11
+            },
+            {
+                "word": "l",
+                "number": 12
+            },
+            {
+                "word": "m",
+                "number": 13
+            },
+            {
+                "word": "n",
+                "number": 14
+            },
+            {
+                "word": "o",
+                "number": 15
+            },
+            {
+                "word": "p",
+                "number": 16
+            },
+            {
+                "word": "q",
+                "number": 17
+            },
+            {
+                "word": "r",
+                "number": 18
+            },
+            {
+                "word": "s",
+                "number": 19
+            },
+            {
+                "word": "t",
+                "number": 20
+            },
+            {
+                "word": "u",
+                "number": 21
+            },
+            {
+                "word": "v",
+                "number": 22
+            },
+            {
+                "word": "w",
+                "number": 24
+            },
+            {
+                "word": "x",
+                "number": 25
+            },
+            {
+                "word": "y",
+                "number": 26
+            },
+            {
+                "word": "z",
+                "number": 27
+            }
+        ];
+    }
+    constructor(s) {
+        this.s = s;
+        this.buildNumbers();
+    }
+    getText() {
+        const split_words = this.s.split("");
+        let return_string = "";
+        for (let i = 0; i < split_words.length; i++) {
+            let word = split_words[i];
+            this.numbers.forEach(function (value, key) {
+                if (word == value.word) {
+                    return_string += value.number;
+                }
+            });
+        }
+        return return_string;
+    }
+}
 class ReverseTextDecorator {
     constructor(s) {
         this.s = s;
@@ -16207,6 +16383,9 @@ function handleSubmit(e) {
     }
     if (form.emojify.checked) {
         output_text += new ConcreteDecorator(new EmojiDecorator(text)).getText();
+    }
+    if (form.numberfy.checked) {
+        output_text += new ConcreteDecorator(new NumberfyTextDecorator(text)).getText();
     }
     let output = document.getElementById("output");
     output.style.display = "block";
