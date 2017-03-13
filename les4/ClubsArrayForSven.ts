@@ -1,0 +1,20 @@
+let clubs : Array<string> = [
+        "Feyenoord", 
+        "Ajax",
+        "PSV",
+        "FC Utrecht",
+        "AZ",       
+        "FC Twente",
+        "sc Heerenveen",
+        "Vitesse",
+        "Willem II",
+        "FC Groningen",
+        "Heracles Almelo",
+        "NEC",
+        "PEC Zwolle",
+        "Sparta Rotterdam",
+        "Go Ahead Eagles",
+        "Excelsior",
+        "Roda JC Kerkrade",
+        "ADO Den Haag"
+    ];
