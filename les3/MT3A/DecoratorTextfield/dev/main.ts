@@ -42,6 +42,11 @@ function handleSubmit(e) {
             new EmojiDecorator(text)
         ).getText();
     }
+    if(form.antiSwearify.checked) {
+        output_text += new ConcreteDecorator(
+            new AntiSwearDectorater(text)
+        ).getText();
+    }
 
     let output = document.getElementById("output");
     output.style.display = "block";
