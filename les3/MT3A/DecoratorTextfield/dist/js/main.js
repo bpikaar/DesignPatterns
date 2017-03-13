@@ -16236,7 +16236,7 @@ function handleSubmit(e) {
     if (form.emojify.checked) {
         output_text += new ConcreteDecorator(new EmojiDecorator(text)).getText();
     }
-    if (form.antiRacismfy.checked) {
+    if (form.antiSwearify.checked) {
         output_text += new ConcreteDecorator(new AntiSwearDectorater(text)).getText();
     }
     let output = document.getElementById("output");

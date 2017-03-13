@@ -42,7 +42,7 @@ function handleSubmit(e) {
             new EmojiDecorator(text)
         ).getText();
     }
-    if(form.antiRacismfy.checked) {
+    if(form.antiSwearify.checked) {
         output_text += new ConcreteDecorator(
             new AntiSwearDectorater(text)
         ).getText();
