@@ -5,12 +5,6 @@ window.addEventListener("load", function() {
     let simpleIterator : SimpleIterator = 
         new SimpleIterator([0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
 
-        while(simpleIterator.hasNext()) {
-            console.log(simpleIterator.next());
-        }
-        
-        
-
     // Voorbeeld 2: gebruik van TypeScript Iterator
 
     let typeScriptIterator : TypeScriptIterator = new TypeScriptIterator([89, 144, 233, 377, 610, 987, 1597]);
@@ -20,9 +14,6 @@ window.addEventListener("load", function() {
 
     let typeScriptItrableIterator : TypeScriptIterableIterator = new TypeScriptIterableIterator([2584, 4181, 6765, 10946]);
 
-    for (let item of typeScriptItrableIterator) {
-        console.log(item);
-    }
 
     // Voorbeeld 4: gebruik van generator
     function* idMaker(){
@@ -38,10 +29,4 @@ window.addEventListener("load", function() {
     }
 
     let gen = idMaker();
-
-    //console.log(gen.next());
-    
-    for(let item of idMaker()) {
-        console.log(item);
-    }
 });

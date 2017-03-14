@@ -10,6 +10,7 @@ function handleSubmit(e) {
     
     let text = form.search.value;
     
+<<<<<<< HEAD
     // Textobject
     var rawString : Txt = new RawString(text);
     
@@ -38,10 +39,35 @@ function handleSubmit(e) {
     if(form.removevowels.checked) {
         console.log("klinkers verwijderen");
         rawString = new RemoveVowels(rawString);
+=======
+    let name = new Name();
+    name.text = text;
+    
+    if(form.Scrambled.checked) {
+        name = new ScrambledName(name);
+        
+    }
+    
+    if(form.to1337.checked) {
+        name = new LeetName(name);
+        
+    }
+    
+    if(form.FULLCAPS.checked) {
+        name = new CapsName(name);
+    }
+    
+    if(form.XxxX.checked) {
+        name = new XxxXName(name);
+>>>>>>> bpikaar/master
     }
     
     
     let output = document.getElementById("output");
     output.style.display = "block";
+<<<<<<< HEAD
     output.innerHTML = rawString.getText();
+=======
+    output.innerText = name.toString();
+>>>>>>> bpikaar/master
 }
