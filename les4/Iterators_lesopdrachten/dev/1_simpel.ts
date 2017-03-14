@@ -8,16 +8,10 @@ class SimpleIterator implements IteratorInterface {
      }
 
     public next(): Object {
-       if (this.hasNext()){
-            return this.collection[this.pointer++];
-       }
-       else {
-           return null;
-       }
+     
     }
 
     public hasNext(): boolean {
-        return this.collection.length > this.pointer;
     }
 }
 
