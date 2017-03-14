@@ -2,6 +2,7 @@
 
 class CapsName extends TextObject
 {
+    private base : TextObject = null;
 
     constructor(base:TextObject)
     {
