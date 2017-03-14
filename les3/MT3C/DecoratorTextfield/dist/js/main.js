@@ -60,6 +60,9 @@ function handleSubmit(e) {
     if (form.XxxX.checked) {
         name = new XxxXName(name);
     }
+    if (form.removeVowels.checked) {
+        name = new RemoveVowels(name);
+    }
     let output = document.getElementById("output");
     output.style.display = "block";
     output.innerText = name.toString();
@@ -70,6 +73,25 @@ class Name extends TextObject {
     }
     toString() {
         return this.text;
+    }
+}
+class RemoveVowels extends TextObject {
+    constructor(base) {
+        super();
+        this.base = null;
+        this.base = base;
+    }
+    toString() {
+        let splits = this.base.toString().split('');
+        let newString = '';
+        for (let letter of splits) {
+            if (letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u") {
+            }
+            else {
+                newString += letter;
+            }
+        }
+        return newString;
     }
 }
 class ScrambledName extends TextObject {

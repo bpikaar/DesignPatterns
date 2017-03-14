@@ -31,6 +31,9 @@ function handleSubmit(e) {
         name = new XxxXName(name);
     }
     
+    if(form.removeVowels.checked) {
+        name = new RemoveVowels(name);
+    }
     
     let output = document.getElementById("output");
     output.style.display = "block";
