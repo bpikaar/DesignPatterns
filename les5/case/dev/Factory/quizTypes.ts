@@ -1,0 +1,4 @@
+enum QuizTypes {
+    VERKIEZINGEN,
+    PROGRAMMEREN
+}
